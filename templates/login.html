@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{{ title }}</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='stylesheets/login.css') }}">
+</head>
+
+<body>
+    <header>
+        <div class="name">
+            <h1><a href="/">Zapp: The smart way to log in</a></h1>
+        </div>
+        <nav>
+            <a href="/login">Login</a>
+            <a href="/register">Register</a>
+        </nav>
+    </header>
+    <h2>Already have account? Login already!</h2>
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.email.label }}<br>
+            {{ form.email(size=32) }}
+        </p>
+        <p>
+            {{ form.password.label }}<br>
+            {{ form.password(size=32) }}
+        </p>
+        {% if error %}
+        <p class="error">{{ error }}</p>
+        {% endif %}
+        <div class="submit-button">
+            <p>{{ form.submit() }}</p>
+        </div>
+    </form>
+
+</body>
+
+</html>
